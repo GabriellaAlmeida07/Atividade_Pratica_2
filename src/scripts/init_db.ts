@@ -1,0 +1,37 @@
+import { sequelize } from "@/models/dbconfig";
+import { Produto } from "@/models/produto.model";
+
+export async function inicializarBanco() {
+    // Criação automática de alguns produtos
+
+    await sequelize.sync({ force: true });
+
+    await Produto.bulkCreate([
+        {
+            nome: "Poção Blue Sky",
+            img_url: "https://i.ibb.co/ZzS7xb2/rsz-sky.png",
+            descricao: "Essa poção provê um surto de inspiração por 24 horas. Foi utilizada por John Lennon quando escreveu Lucy in the Sky with Diamonds",
+            preco: 300,
+        },
+        {
+            nome: "Poção do Perfume Misterioso",
+            img_url: "https://i.ibb.co/pyhZJXf/rsz-lilas.png",
+            descricao: "Essa poção faz com que você fique cheirando lilás e groselha por 24 dias. Essência muito admirada pelos bruxos",
+            preco: 200,
+        },
+        {
+            nome: "Poção de Pinus",
+            img_url: "https://i.ibb.co/DkzdL1q/rsz-pinus.png",
+            descricao: "Descrição: Essa poção faz com que você fique 10 cm mais alto! Observação: efeitos colaterais desconhecidos",
+            preco: 3000,
+        },
+        {
+            nome: "Poção da Beleza Eterna",
+            img_url: "https://i.ibb.co/9p872NK/rsz-1beleza.png",
+            descricao: "Veneno que mata rápido",
+            preco: 100,
+        },
+    ]);
+
+    console.log("Banco inicializado.");
+}
