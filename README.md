@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Como executar o projeto
 
-## Getting Started
-
-First, run the development server:
+Siga os passos abaixo para executar a aplicação localmente:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Após iniciar o servidor de desenvolvimento, a aplicação estará disponível em:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Guia de Navegação e Uso
 
-## Learn More
+Ao executar a aplicação, você será direcionado para a página inicial (`/`), que corresponde ao **painel administrativo da vendedora**. Nessa página é exibida a listagem de todas as poções cadastradas na loja.
 
-To learn more about Next.js, take a look at the following resources:
+As funcionalidades disponíveis nessa tela são:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Cadastrar uma nova poção**, clicando no botão **"+ Adicionar Nova Poção"**.
+* **Excluir uma poção**, clicando no ícone de lixeira presente no card da poção desejada.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Página do Cliente
 
-## Deploy on Vercel
+Para acessar a visão do cliente, utilize a rota:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+http://localhost:3000/Cliente
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nessa página é possível visualizar todas as poções disponíveis para compra e simular uma compra clicando no botão **Comprar** presente no card da poção desejada.
+
+## Página "Sobre a Loja"
+
+Para acessar a página de informações da loja, clique no ícone de menu (hambúrguer) localizado no canto superior direito do cabeçalho.
+
+Você será direcionado para a rota:
+
+```
+http://localhost:3000/Sobre
+```
+
+Essa página apresenta:
+
+* A história da loja **Poções & Soluções**;
+* Uma imagem do interior da loja;
+* Informações sobre a proprietária e alquimista **Annabelle**;
+* A história do grimório utilizado pelos alquimistas da família responsável pela loja;
+* Um rodapé contendo informações de contato e a localização da loja, situada no **Beco da Última Saída**.
+
+# Características do Projeto
+
+O projeto foi desenvolvido para atender aos requisitos propostos, contemplando:
+
+* Interface responsiva;
+* Design com temática sombria inspirada no universo de fantasia e magia;
+* Fontes clássicas e sóbrias;
+* Cadastro, listagem, exclusão e simulação de compra de poções;

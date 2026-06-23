@@ -17,6 +17,7 @@ export default function CadastroPocao() {
 
     const [loading, setLoading] = useState(false);
     const [produto, setProduto] = useState<ProdutoProps>(initialProduto);
+    const [precoTexto, setPrecoTexto] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -52,7 +53,7 @@ export default function CadastroPocao() {
             toast.error("Erro ao cadastrar poção");
         } finally {
             setLoading(false);
-
+            setPrecoTexto("");
             setTimeout(() => {
                 setProduto(initialProduto);
             }, 1200);
@@ -174,15 +175,29 @@ export default function CadastroPocao() {
                         <input
                             required
                             type="text"
-                            value={produto.preco}
-                            onChange={(e) =>
+                            value={precoTexto}
+                            onChange={(e) => {
+                                const apenasNumeros = e.target.value.replace(
+                                    /\D/g,
+                                    ""
+                                );
+
+                                const valor = Number(apenasNumeros) / 100;
+
                                 setProduto({
                                     ...produto,
-                                    preco: Number(e.target.value),
-                                })
-                            }
+                                    preco: valor,
+                                });
+
+                                setPrecoTexto(
+                                    valor.toLocaleString("pt-BR", {
+                                        style: "currency",
+                                        currency: "BRL",
+                                    })
+                                );
+                            }}
                             className={inputStyle}
-                            placeholder="0.00"
+                            placeholder="R$ 0,00"
                         />
                     </div>
 

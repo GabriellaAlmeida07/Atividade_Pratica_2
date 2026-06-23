@@ -2,7 +2,7 @@ import { sequelize } from "@/models/dbconfig";
 import { Produto } from "@/models/produto.model";
 
 export async function inicializarBanco() {
-    // Criação automática de alguns produtos
+    // Criação automática dos produtos
 
     await sequelize.sync({ force: true });
 
@@ -30,6 +30,18 @@ export async function inicializarBanco() {
             img_url: "https://i.ibb.co/9p872NK/rsz-1beleza.png",
             descricao: "Veneno que mata rápido",
             preco: 100,
+        },
+        {
+            nome: "Poção do Arco Íro",
+            img_url: "https://i.ibb.co/PrC09MP/rsz-2unicornio.png",
+            descricao: "Traz felicidade momentânea. Pode durar de 10 minutos a 2 dias",
+            preco: 120,
+        },
+        {
+            nome: "Poção do Caldeirão das Verdades Secretas",
+            img_url: "https://i.ibb.co/s9Lyvj8/rsz-verdades.png",
+            descricao: "As pessoas lhe dirão apenas verdades por 1 hora. É necessário beber os 5L",
+            preco: 150,
         },
     ]);
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 import { FaSpinner, FaTrash } from "react-icons/fa";
+import { RiShoppingBasket2Fill, RiShoppingCart2Fill } from "react-icons/ri";
 
 export default function CardProduto({
     id,
@@ -105,20 +106,12 @@ export default function CardProduto({
                         {tipo === "cliente" ? (
                             <button
                                 onClick={() => setComprado(true)}
-                                className="
-                                    px-7 py-3
-                                    cursor-pointer
-                                    bg-linear-to-b from-pink-400/20 to-pink-900/30
-                                    border border-pink-300/30
-                                    text-pink-100
-                                    rounded-sm
-                                    font-semibold
-                                    hover:scale-105
-                                    hover:border-pink-200/60
-                                    transition
-                                "
+                                className="px-4 md:px-7 py-3 cursor-pointer bg-linear-to-b from-pink-400/20 to-pink-900/30 border border-pink-300/30 text-pink-100 rounded-sm font-semibold hover:scale-105 hover:border-pink-200/60 transition flex items-center justify-center gap-2"
                             >
-                                Comprar
+                                <RiShoppingBasket2Fill size={20} />
+                                <span className="hidden md:inline">
+                                    Comprar
+                                </span>
                             </button>
                         ) : (
                             <button
@@ -158,11 +151,10 @@ export default function CardProduto({
                         </h2>
 
                         <p className="text-zinc-400 text-center mt-4 leading-relaxed">
-                            Você acaba de adquirir a poção{" "}
+                            Você acaba de adquirir a{" "}
                             <span className="text-pink-300 font-semibold">
                                 {nome}
                             </span>
-                            
                         </p>
 
                         {/* Voltar */}
@@ -177,6 +169,7 @@ export default function CardProduto({
                                     rounded-sm
                                     hover:scale-105
                                     hover:border-pink-200/60
+                                    cursor-pointer
                                     transition
                                 "
                             >
@@ -193,19 +186,19 @@ export default function CardProduto({
                     <div className="bg-[#1a171d] border border-pink-900/30 rounded-lg p-8 w-95">
                         <h2
                             style={{ fontFamily: "var(--font-grenze)" }}
-                            className=" text-xl text-pink-200 text-center"
+                            className=" text-2xl text-pink-200 text-center"
                         >
                             Excluir Poção
                         </h2>
 
-                        <p className="text-zinc-400 text-center mt-4">
+                        <p className="text-zinc-300 text-lg text-center mt-4">
                             Deseja realmente excluir este item?
                         </p>
 
                         <div className="flex gap-4 mt-8">
                             <button
                                 onClick={() => setShowConfirmacao(false)}
-                                className="flex-1 py-2 bg-zinc-700 hover:bg-zinc-600"
+                                className="flex-1 py-2 cursor-pointer bg-zinc-700 hover:bg-zinc-600"
                             >
                                 Cancelar
                             </button>
@@ -213,7 +206,7 @@ export default function CardProduto({
                             <button
                                 onClick={deletarProduto}
                                 disabled={loadingExclusao}
-                                className="flex-1 py-2 bg-red-700 hover:bg-red-600 flex items-center justify-center gap-2"
+                                className="flex-1 py-2 cursor-pointer bg-red-700 hover:bg-red-600 flex items-center justify-center gap-2"
                             >
                                 {loadingExclusao ? (
                                     <>

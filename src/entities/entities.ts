@@ -5,5 +5,5 @@ export type ProdutoProps = {
     img_url: string;
     preco: number;
 
-    tipo?: "vendedor" | "cliente"; // Para saber o tipo de usuário "logado" ao chamar o card
+    tipo?: "vendedor" | "cliente"; // Para saber o tipo de usuário "logado" ao chamar o CardProduto
 };

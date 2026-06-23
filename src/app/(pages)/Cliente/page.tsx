@@ -3,18 +3,15 @@
 import CardProduto from "@/components/CardProduto";
 import { ProdutoProps } from "@/entities/entities";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
-import { IoAdd, IoMenu } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 
 export default function HomeCliente() {
     const [loading, setLoading] = useState(false);
     const [produtos, setProdutos] = useState<ProdutoProps[]>([]);
     const caixaRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
-
-    const router = useRouter();
 
     // Pega os produtos cadastrados no banco de dados através da rota
     // /api/produtos com método GET
@@ -75,7 +72,7 @@ export default function HomeCliente() {
                             onClick={() => setIsOpen(true)}
                             className="text-pink-200 cursor-pointer hover:text-pink-100 transition"
                         >
-                            <IoMenu size={28} />
+                            <IoMenu size={40} />
                         </button>
 
                         {isOpen && (
@@ -98,7 +95,7 @@ export default function HomeCliente() {
                                 </p>
 
                                 <Link
-                                    href="/sobre"
+                                    href="/Sobre"
                                     className="block mt-3 text-center py-2 rounded-md bg-pink-900/20 border border-pink-300/30 text-pink-100 hover:border-pink-200/60 transition"
                                 >
                                     Saber mais
